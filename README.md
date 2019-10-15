@@ -1,12 +1,12 @@
-# AUDAX Masternode VPS Installation
+# Spescoin Masternode VPS Installation
 
-This masternode installation script vastly simplifies the setup of an AUDAX masternode running on a virtual private server (VPS), and it also adds a number of other powerful features, including:
+This masternode installation script vastly simplifies the setup of an SpesCoin masternode running on a virtual private server (VPS), and it also adds a number of other powerful features, including:
 
 * IPv6 Support
-* Installs 1-100 (or more!) AUDAX masternodes in parallel on one VPS, with individual audax.conf and data directories
-* It can install masternodes for other coins on the same VPS as AUDAX
+* Installs 1-100 (or more!) SpesCoin masternodes in parallel on one VPS, with individual spescoin.conf and data directories
+* It can install masternodes for other coins on the same VPS as SpesCoin
 * 100% auto-compilation and 99% of configuration on the masternode side of things
-* Automatically compiling from the latest AUDAX release tag, or another tag can be specified
+* Automatically compiling from the latest SpesCoin release tag, or another tag can be specified
 * Some security hardening is done, including firewalling and a separate user, increasing security
 * Automatic startup for all masternode daemons
 
@@ -15,8 +15,8 @@ Some notes and requirements:
 * Script has only been tested on a Vultr VPS, but should work almost anywhere where IPv6 addresses are available
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
-* You may want to do the "Configure AUDAX Wallet" section first as it'll simplify masternode setup.
-* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the AUDAX. It's faster and also makes sure the 150000 AUDAX transfers stay in one piece.
+* You may want to do the "Configure SpesCoin Wallet" section first as it'll simplify masternode setup.
+* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the SpesCoin. It's faster and also makes sure the 150000 SpesCoin transfers stay in one piece.
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
@@ -40,7 +40,7 @@ First, create a new VPS by clicking that small "+" button.
 
 ## Location choice
 
-You can choose any location. You may wish to have it hosted in a city/country near you, or choose a different area to help with the global decentralization of the AUDAX masternode network.
+You can choose any location. You may wish to have it hosted in a city/country near you, or choose a different area to help with the global decentralization of the SpesCoin masternode network.
 
 <img src="docs/images/masternode_vps/location-choice.png" alt="VPS location choice" class="inline"/>
 
@@ -52,7 +52,7 @@ Select Ubuntu 16.04.
 
 ## VPS size
 
-The 25 GB SSD / 1024MB Memory instance is enough for 2-3 masternodes. You may need more memory as the AUDAX blockchain grows over time, or if you want to run more masternodes.
+The 25 GB SSD / 1024MB Memory instance is enough for 2-3 masternodes. You may need more memory as the SpesCoin blockchain grows over time, or if you want to run more masternodes.
 
 <img src="docs/images/masternode_vps/vps-size.png" alt="VPS sizing" class="inline"/>
 
@@ -110,42 +110,42 @@ Login to your newly installed node as "root".
 
 <img src="docs/images/masternode_vps/login.png" alt="VPS sizing" class="inline"/>
 
-Enter this command to copy the Masternode installation script and install a single AUDAX Masternode:
+Enter this command to copy the Masternode installation script and install a single SpesCoin Masternode:
 
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p spescoin
 ```
 
 If you have your masternode private key, please use this (you can generate masternode private key with Step 2 below).
 
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -k **PRIVATE KEY**
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p spescoin -k **PRIVATE KEY**
 ```
 Using this command, you can skip "Configure masternode configuration files" below, because the command abopve adds the masternode private key to the masternode configuration files.
 
-This prepares the system and installs the AUDAX Masternode daemon. This includes downloading the latest AUDAX masternode release, creating a swap file, configuring the firewall, and compiling the AUDAX Masternode from source. This process takes about 10-15 minutes.
+This prepares the system and installs the SpesCoin Masternode daemon. This includes downloading the latest SpesCoin masternode release, creating a swap file, configuring the firewall, and compiling the SpesCoin Masternode from source. This process takes about 10-15 minutes.
 
 <img src="docs/images/masternode_vps/install.png" alt="VPS configuration" class="inline"/>
 
-While that is underway, go back to your local desktop and open audax-qt.
+While that is underway, go back to your local desktop and open spescoin-qt.
 
 ### More complex situations (ignore if you are installing a single masternode on a new VPS)
 
-If you wish to install more than one masternode on the same VPS, you can add a -c parameter to tell the script how many to configure, so for example this would install three AUDAX masternodes (all entered on one line):
+If you wish to install more than one masternode on the same VPS, you can add a -c parameter to tell the script how many to configure, so for example this would install three SpesCoin masternodes (all entered on one line):
 
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -c 3
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p spescoin -c 3
 ```
 
 If you already have your masternode private keys, you can add them as shown below (all entered on one line):
 
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -c 3 --key **PRIVATE KEY 01** --key2 **PRIVATE KEY 02** --key3 **PRIVATE KEY 03**
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p spescoin -c 3 --key **PRIVATE KEY 01** --key2 **PRIVATE KEY 02** --key3 **PRIVATE KEY 03**
 ```
 Replace every `**PRIVATE KEY 01**` etc entry by your private key. So
 
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -c 3 --key1 2QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 2RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 2Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p spescoin -c 3 --key1 2QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 2RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 2Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
 ```
 
 Using this command, you can skip the step for "Configure masternode configuration files", because the command above adds the masternode private keys to the masternode configuration files.
@@ -157,10 +157,10 @@ If you are upgrading your masternode(s) to a new release, you should first remov
 rm -rf /root/
 ```
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -u
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p spescoin -u
 ```
 
-The project is configured to use the latest official release of the AUDAX masternode code, and we will update this project each time a new release is issued, but without downloading the latest version of this project and using the -u parameter, the script will not update an existing AUDAX node that is already installed.
+The project is configured to use the latest official release of the SpesCoin masternode code, and we will update this project each time a new release is issued, but without downloading the latest version of this project and using the -u parameter, the script will not update an existing SpesCoin node that is already installed.
 
 ### Adding Masternodes on an existing installation
 
@@ -174,10 +174,10 @@ Login to your VPS and run the Nodemaster script:
 cd vps
 ```
 ```bash
-sudo ./install.sh -p audax -c *
+sudo ./install.sh -p spescoin -c *
 ```
 
-Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the audax daemon or previous installed nodes.
+Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the spescoin daemon or previous installed nodes.
 
 Edit `/etc/masternodes/audax_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them audax_n1, audax_n2, audax_n3 etcetera.
 
@@ -199,15 +199,15 @@ sudo systemctl start audax_n*
 Start the new masternodes from the masternodes on your local wallet.
 
 
-## Configure AUDAX Wallet
+## Configure SpesCoin Wallet
 ### Step1 - Create Collateral Transaction
-Once the wallet is open on your local computer, generate a new receive address and label it however you want to identify your masternode rewards (e.g., AUDAX-MN-1). This label will show up in your transactions each time you receive a block reward.
+Once the wallet is open on your local computer, generate a new receive address and label it however you want to identify your masternode rewards (e.g., SpesCoin-MN-1). This label will show up in your transactions each time you receive a block reward.
 
 Click the Request payment button, and copy the address.
 
 <img src="docs/images/masternode_vps/request.png" alt="making new address" class="inline"/>
 
-Now go to the Send tab, paste the copied address, and send *exactly* 150000 AUDAX to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
+Now go to the Send tab, paste the copied address, and send *exactly* 150000 SpesCoin to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
 
 <img src="docs/images/masternode_vps/send.png" alt="sending Sending 150kAUDAX" class="inline"/>
 
@@ -221,13 +221,13 @@ This will produce a masternode private key:
 
 <img src="docs/images/masternode_vps/step2-masternodegenkey.png" alt="generating masternode private key" class="inline"/>
 
-Copy this value to a text file. It will be needed for both the audax configuration file on the masternode VPS, and the masternode configuration file on the computer with the controlling AUDAX wallet.
+Copy this value to a text file. It will be needed for both the spescoin configuration file on the masternode VPS, and the masternode configuration file on the computer with the controlling SpesCoin wallet.
 
-If you are setting up multiple masternodes, repeat this step for each one. Each time you run the masternode genkey command it will give you a new private key--it doesn't matter which one you use, but it is important that it is unique for each masternode and that the VPS AUDAX configuration file and wallet masternode configuration file match (see below).
+If you are setting up multiple masternodes, repeat this step for each one. Each time you run the masternode genkey command it will give you a new private key--it doesn't matter which one you use, but it is important that it is unique for each masternode and that the VPS SpesCoin configuration file and wallet masternode configuration file match (see below).
 
 ### Step 3 - Masternode Outputs
 
-This will give you the rest of the information you need to configure your masternode in your AUDAX wallet--the transaction ID and the output index.
+This will give you the rest of the information you need to configure your masternode in your SpesCoin wallet--the transaction ID and the output index.
 
 ```bash
 masternode outputs
@@ -237,7 +237,7 @@ masternode outputs
 
 The long string of characters is the *Transaction ID* for your masternode collateral transaction. The number after the long string is the *Index*. Copy and paste these into the text file next to the private key you generated in Step 2.
 
-If you have multiple masternodes in the same wallet and have done the 150000 AUDAX transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS audax configuration files match (see below).
+If you have multiple masternodes in the same wallet and have done the 150000 SpesCoin transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS spescoin configuration files match (see below).
 
 ## End of installations
 When the script finishes, it will look similar to this:
@@ -246,7 +246,7 @@ When the script finishes, it will look similar to this:
 
 You only have a few steps remaining to complete your masternode configuration.
 ## Configure masternode configuration files
-Since this installation method supports multiple masternodes, the audax configuration files have a node number added to them (e.g., audax_n1.conf, audax_n2.conf), stored in the /etc/masternodes directory. If you have a single masternode on the VPS, you will only need to edit /etc/masternodes/audax_n1.conf.
+Since this installation method supports multiple masternodes, the spescoin configuration files have a node number added to them (e.g., audax_n1.conf, audax_n2.conf), stored in the /etc/masternodes directory. If you have a single masternode on the VPS, you will only need to edit /etc/masternodes/audax_n1.conf.
 
 To open audax_n1.conf for editing, enter these commands:
 ```bash
@@ -269,7 +269,7 @@ While you have this file opened, copy the information that follows after mastern
 Once you have your masternode private key entered, press <font color="Green">Ctrl+X</font> .
 Then press <font color="Green">Y</font> to save, and press Enter to exit.
 
-Finally, close and restart your AUDAX wallet so that it will have the new masternode configuration.
+Finally, close and restart your SpesCoin wallet so that it will have the new masternode configuration.
 
 ## Start your masternodes
 A script for starting all masternodes on the VPS has been created at /usr/local/bin/activate_masternodes_audax.sh.
@@ -279,14 +279,14 @@ Run this command after your masternode configuration written above.
 /usr/local/bin/activate_masternodes_audax
 ```
 
-The masternode daemons will start and begin loading the AUDAX blockchain.
+The masternode daemons will start and begin loading the SpesCoin blockchain.
 
 ## Finishing Wallet Configuration & Activate Masternode
 To activate your nodes from your wallet, one of the last steps is to add a line for the masternode in the masternode.conf file. This file has the following format, with each value separated with a space:
 
 * alias IP:Port masternodeprivatekey collateral_transaction_ID collateral_output_index
-* alias - A short name you use to identify the masternode, you can choose this name as long as it is without spaces (e.g., AUDAX-MN-1)
-* IP:Port - The IP address (either IPv6 or IPv4) and the Port where the masternode is running, separated by a colon (:). You copied this from the audax.conf file on the VPS.
+* alias - A short name you use to identify the masternode, you can choose this name as long as it is without spaces (e.g., SpesCoin-MN-1)
+* IP:Port - The IP address (either IPv6 or IPv4) and the Port where the masternode is running, separated by a colon (:). You copied this from the spescoin.conf file on the VPS.
 * collateral_transaction_ID: This is the transaction ID you copied from masternode outputs.
 * collateral_output_index: This is the index you copied from masternode outputs.
 
@@ -295,24 +295,24 @@ Add the MN conf line, like the example below to the masternode.conf file. Save i
 
 example.
 ```
-AUDAX-MN-1 [2001:19f0:5001:ca6:2085::1]:18200 88xrxxxxxxxxxxxxxxxxxxxxxxx7K 6b4c9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7ee23 0
+SpesCoin-MN-1 [2001:19f0:5001:ca6:2085::1]:18200 88xrxxxxxxxxxxxxxxxxxxxxxxx7K 6b4c9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7ee23 0
 ```
 
 The image below shows another example using an IPv4 IP address. If you followed this guide you are probably using an IPv6 address that looks like the line above.
 
 <img src="docs/images/masternode_vps/masternode-conf.png" alt="editing masternode.conf" class="inline"/>
 
-If you are running multiple masternodes, you need to add one of these lines for each masternode, and make sure the private key on each line matches the corresponding private key you entered in the VPS audax configuration file for that masternode.
+If you are running multiple masternodes, you need to add one of these lines for each masternode, and make sure the private key on each line matches the corresponding private key you entered in the VPS spescoin configuration file for that masternode.
 ## Check syncing status of masternode
-The masternode cannot complete activation until it is fully synced with the AUDAX blockchain network.
+The masternode cannot complete activation until it is fully synced with the SpesCoin blockchain network.
 
 To check the status of your masternode, please enter this command in the VPS terminal. 
 ```bash
-/usr/local/bin/audax-cli -conf=/etc/masternodes/audax_n1.conf getinfo
+/usr/local/bin/spescoin-cli -conf=/etc/masternodes/audax_n1.conf getinfo
 ```
 If you have multiple masternodes on the same VPS, you can change n1 to n2 etc. So for node number two type:
 ```bash
-/usr/local/bin/audax-cli -conf=/etc/masternodes/audax_n2.conf getinfo
+/usr/local/bin/spescoin-cli -conf=/etc/masternodes/audax_n2.conf getinfo
 ```
 Etcetera.
 
@@ -344,11 +344,11 @@ We're looking at the *blocks*, and need that to be the latest block in the block
 
 <img src="docs/images/masternode_vps/status.png" alt="checking syncing status" class="inline"/>
 
-Once your masternode has synced up to the latest block, go to next step. The syncing process may take 15-30 minutes or more as the AUDAX blockchain grows. You can keep checking progress with the command above, by pressing the up arrow and Enter to repeat it.
+Once your masternode has synced up to the latest block, go to next step. The syncing process may take 15-30 minutes or more as the SpesCoin blockchain grows. You can keep checking progress with the command above, by pressing the up arrow and Enter to repeat it.
 
 ## Start Masternode
 
-Go to the debug console of your AUDAX wallet **[Tools->Debug Console]** and enter the following command, replacing **mn-alias** with the name of the masternode in the Alias column of the Masternodes tab:
+Go to the debug console of your SpesCoin wallet **[Tools->Debug Console]** and enter the following command, replacing **mn-alias** with the name of the masternode in the Alias column of the Masternodes tab:
 
 ```
 startmasternode alias false mn-alias
@@ -362,7 +362,7 @@ If everything was setup correctly, after entering the command you will see somet
 "overall" : "Successfully started 1 masternodes, failed to start 0, total 1",
 "detail" : {
 "status" : {
-"alias" : "audax-mn01",
+"alias" : "spescoin-mn01",
 "result" : "successful"
 }
 ```
@@ -372,9 +372,9 @@ If you are setting up multiple masternodes, repeat this for each one. You can no
 
 It should say ENABLED, and within an hour, the timer in the Active column should start increasing.
 
-Your AUDAX masternode is now set up and running! Depending on how many masternodes there are, it may take up to 72 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
+Your SpesCoin masternode is now set up and running! Depending on how many masternodes there are, it may take up to 72 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
 
 <img src="docs/images/masternode_vps/reward.png" alt="rewards" class="inline"/>
 
 ## Issues and Questions
-Please open a GitHub Issue if there are problems with this installation method. If you can't figure it out just ask someone in the AUDAX channel.
+Please open a GitHub Issue if there are problems with this installation method. If you can't figure it out just ask someone in the SpesCoin channel.
