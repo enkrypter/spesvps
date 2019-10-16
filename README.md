@@ -209,7 +209,7 @@ Click the Request payment button, and copy the address.
 
 Now go to the Send tab, paste the copied address, and send the *exact* SpesCoin collateral to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
 
-<img src="docs/images/masternode_vps/send.png" alt="sending Sending 150kAUDAX" class="inline"/>
+<img src="docs/images/masternode_vps/send.png" alt="sending Sending SPESCOIN collateral" class="inline"/>
 
 ### Step 2 - Generate Masternode Private Key
 Go to the **[Tools > Debug Console]** and enter these commands below:
@@ -262,7 +262,7 @@ After typing the nano command, you will see something similar to this.
 
 <img src="docs/images/masternode_vps/insert-your-masternode-private-key.png" alt="add private key" class="inline"/>
 
-Copy the masternode private key from the text file you saved it in, and replace HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_audax_1 with that private key (It starts with a 7.
+Copy the masternode private key from the text file you saved it in, and replace HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_spescoin_1 with that private key (It starts with a 7.
 
 While you have this file opened, copy the information that follows after masternodeaddr=, starting with the open bracket. This is the masternode's IPv6 address and port, and will be needed for the wallet's masternode.conf file.
 
@@ -272,11 +272,11 @@ Then press <font color="Green">Y</font> to save, and press Enter to exit.
 Finally, close and restart your SpesCoin wallet so that it will have the new masternode configuration.
 
 ## Start your masternodes
-A script for starting all masternodes on the VPS has been created at /usr/local/bin/activate_masternodes_audax.sh.
+A script for starting all masternodes on the VPS has been created at /usr/local/bin/activate_masternodes_spescoin.sh.
 Run this command after your masternode configuration written above.
 
 ```bash
-/usr/local/bin/activate_masternodes_audax
+/usr/local/bin/activate_masternodes_spescoin
 ```
 
 The masternode daemons will start and begin loading the SpesCoin blockchain.
