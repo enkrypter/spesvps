@@ -16,7 +16,7 @@ Some notes and requirements:
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
 * You may want to do the "Configure SpesCoin Wallet" section first as it'll simplify masternode setup.
-* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the SpesCoin. It's faster and also makes sure the 150000 SpesCoin transfers stay in one piece.
+* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the SpesCoin. It's faster and also makes sure the SpesCoin collateral transfers stay in one piece.
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
@@ -207,7 +207,7 @@ Click the Request payment button, and copy the address.
 
 <img src="docs/images/masternode_vps/request.png" alt="making new address" class="inline"/>
 
-Now go to the Send tab, paste the copied address, and send *exactly* 150000 SpesCoin to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
+Now go to the Send tab, paste the copied address, and send the *exact* SpesCoin collateral to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
 
 <img src="docs/images/masternode_vps/send.png" alt="sending Sending 150kAUDAX" class="inline"/>
 
@@ -237,7 +237,7 @@ masternode outputs
 
 The long string of characters is the *Transaction ID* for your masternode collateral transaction. The number after the long string is the *Index*. Copy and paste these into the text file next to the private key you generated in Step 2.
 
-If you have multiple masternodes in the same wallet and have done the 150000 SpesCoin transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS spescoin configuration files match (see below).
+If you have multiple masternodes in the same wallet and have done the SpesCoin collateral transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS spescoin configuration files match (see below).
 
 ## End of installations
 When the script finishes, it will look similar to this:
