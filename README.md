@@ -179,7 +179,7 @@ sudo ./install.sh -p spescoin -c *
 
 Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the spescoin daemon or previous installed nodes.
 
-Edit `/etc/masternodes/spescoin_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them audax_n1, audax_n2, audax_n3 etcetera.
+Edit `/etc/masternodes/spescoin_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them spescoin_n1, spescoin_n2, spescoin_n3 etcetera.
 
 Edit your local masternode.conf and add a line for every new masternode with:
 
@@ -246,12 +246,12 @@ When the script finishes, it will look similar to this:
 
 You only have a few steps remaining to complete your masternode configuration.
 ## Configure masternode configuration files
-Since this installation method supports multiple masternodes, the spescoin configuration files have a node number added to them (e.g., audax_n1.conf, audax_n2.conf), stored in the /etc/masternodes directory. If you have a single masternode on the VPS, you will only need to edit /etc/masternodes/audax_n1.conf.
+Since this installation method supports multiple masternodes, the spescoin configuration files have a node number added to them (e.g., spescoin_n1.conf, spescoin_n2.conf), stored in the /etc/masternodes directory. If you have a single masternode on the VPS, you will only need to edit /etc/masternodes/spescoin_n1.conf.
 
-To open audax_n1.conf for editing, enter these commands:
+To open spescoin_n1.conf for editing, enter these commands:
 ```bash
 sudo apt-get install nano
-nano /etc/masternodes/audax_n1.conf
+nano /etc/masternodes/spescoin_n1.conf
 ```
 The next step adds your masternode private key.
 
@@ -308,11 +308,11 @@ The masternode cannot complete activation until it is fully synced with the Spes
 
 To check the status of your masternode, please enter this command in the VPS terminal. 
 ```bash
-/usr/local/bin/spescoin-cli -conf=/etc/masternodes/audax_n1.conf getinfo
+/usr/local/bin/spescoin-cli -conf=/etc/masternodes/spescoin_n1.conf getinfo
 ```
 If you have multiple masternodes on the same VPS, you can change n1 to n2 etc. So for node number two type:
 ```bash
-/usr/local/bin/spescoin-cli -conf=/etc/masternodes/audax_n2.conf getinfo
+/usr/local/bin/spescoin-cli -conf=/etc/masternodes/spescoin_n2.conf getinfo
 ```
 Etcetera.
 
