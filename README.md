@@ -179,7 +179,7 @@ sudo ./install.sh -p spescoin -c *
 
 Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the spescoin daemon or previous installed nodes.
 
-Edit `/etc/masternodes/audax_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them audax_n1, audax_n2, audax_n3 etcetera.
+Edit `/etc/masternodes/spescoin_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them audax_n1, audax_n2, audax_n3 etcetera.
 
 Edit your local masternode.conf and add a line for every new masternode with:
 
@@ -190,10 +190,10 @@ Save and restart the wallet.
 On your VPS, start every new masternode with:
 
 ```bash
-sudo systemctl enable audax_n*        
+sudo systemctl enable spescoin_n*        
 ``` 
 ```bash
-sudo systemctl start audax_n*
+sudo systemctl start spescoin_n*
 ```
 
 Start the new masternodes from the masternodes on your local wallet.
